@@ -3,16 +3,44 @@
 // export default {
 //   components: { Home },
 // }
+import { ref } from 'vue'
+
+const drawer = ref(false)
+
 </script>
 
+<script lang="ts">
+  export default {
+    data: () => ({ drawer: Boolean }),
+  }
+</script>  
+
 <template>
-  <!--router-linkはVue Router利用時におけるaリンクに変わるカスタムコンポーネントです。
-    router-linkを用いることで実際に画面をリロードすることなく内部の処理による画面遷移を実現します。
-    つまりaによるリンクはVueによるシングルページアプリケーションでは使わないようにする必要があります。-->
-  <router-link to="/">Home</router-link> 
-  <router-link to="/edit">Edit</router-link>
-  <h1>My ToDo App</h1>
-  <router-view />
+    <v-app id="inspire">
+    <v-navigation-drawer v-model="drawer">
+      <!--  -->
+      <ul>
+        <li><router-link to="/">Home</router-link> </li>
+        <li><router-link to="/edit">Edit</router-link></li>
+      </ul>
+    </v-navigation-drawer>
+
+    <v-app-bar>
+      <v-app-bar-nav-icon @click="drawer = !drawer">
+        <svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true">
+          <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path>
+        </svg>
+      </v-app-bar-nav-icon>
+
+      <v-toolbar-title>Application</v-toolbar-title>
+    </v-app-bar>
+
+    <v-main>
+      <!--  -->
+
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <style scoped>
