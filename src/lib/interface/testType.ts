@@ -1,7 +1,7 @@
-interface test {
+export interface test {
     test1: number
     test2: string
-};
+}
 
 export class cTest implements test {
     test1 = 0;

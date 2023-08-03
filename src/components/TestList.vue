@@ -1,36 +1,34 @@
 <script lang="ts">
 import MyButton from './MyButton.vue'
-import * as testType from '../lib/interface/testType'
-import testDao from '../lib/dao/testData'
-import * as dbutil from '../common/sqliteUtility'
+import * as testType from '@/lib/interface/testType'
 
 export default {
   components: {
     MyButton,
   },
-  props: {
-    testArray?: testType.cTest[],
+  data() {
+    return {
+      testArray: [] as testType.test[],
+    }
   },
   methods: {
-    openEditMode() {
+    moveHome() {
       this.$router.push('/Home')
     },
     getTestList() {
-      let dbc = new dbutil.dbCommon('../testDb.db');
-      new testDao(dbc.getConnection());
+
     },
   },
 }
 </script>
 
 <template>
-  <ul>
+  <!-- <ul>
     <li v-for="test in testArray">
-      <!--
-      <input type="text" v-model="test.test2" />
-      <span>{{ test.text2 }}</span>
-      -->
-      <MyButton @click="openEditMode()">ホーム</MyButton>
+      <input type="text" v-model="test.test1" />
+      <span>{{ test.test2 }}</span>
     </li>
-  </ul>
+  </ul> -->
+  <MyButton @click="moveHome()">ホーム</MyButton>
+  <MyButton @click="getTestList()">リスト取得</MyButton>
 </template>

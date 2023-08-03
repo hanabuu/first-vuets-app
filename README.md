@@ -24,6 +24,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 * vue router、vue2とは結構変わる
 * ~~vite と express の関係も気にする必要あり~~
 * vuetifyを入れてみた
+* vue3でsqliteを操作するのは無理
 
 ## 参考
 
@@ -33,3 +34,4 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 * [TypeScript+Express+Viteを用いたモダン(？)なWeb APIアプリのボイラーテンプレートを作ってみました。](https://www.neko3cs.net/entry/express-ts-with-vite-template)
 * [Vue3でVuetifyをインストールしよう](https://asameshicode.com/vue3-vuetify/)
 * [Vuetifyについて学んでみた🧑‍🎨](https://zenn.dev/joo_hashi/articles/50c77b03d195de)
+* [vue（nodejs)を使ってSQLite3を使いたい。(結論無理ということ)](https://teratail.com/questions/347072)

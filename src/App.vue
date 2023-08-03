@@ -5,13 +5,13 @@
 // }
 import { ref } from 'vue'
 
-const drawer = ref(false)
+const drawer = ref(null)
 
 </script>
 
 <script lang="ts">
   export default {
-    data: () => ({ drawer: Boolean }),
+    data: () => ({ drawer: null }),
   }
 </script>  
 
@@ -22,6 +22,7 @@ const drawer = ref(false)
       <ul>
         <li><router-link to="/">Home</router-link> </li>
         <li><router-link to="/edit">Edit</router-link></li>
+        <li><router-link to="/test">Test</router-link></li>
       </ul>
     </v-navigation-drawer>
 
