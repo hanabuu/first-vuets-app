@@ -3,7 +3,7 @@ export interface test {
     test2: string
 }
 
-export class cTest implements test {
-    test1 = 0;
-    test2 = "";
-};
+export interface testPoke {
+    name: string,
+    url: string
+}
