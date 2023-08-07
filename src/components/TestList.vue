@@ -9,18 +9,13 @@ export default {
   },
   data() {
     return {
+      itemsPerPage: 5,
       resultArray: [] as testType.testPoke[],
       baseUrl: "https://pokeapi.co/api/v2/",
-      varUrl: "pokemon?limit=10&offset=0",
+      varUrl: "pokemon?limit=1000&offset=0",
       headers: [
-        {
-          text: '名前',
-          value: 'name',
-        },
-        {
-          text: 'URL',
-          value: 'url',
-        },
+        { title: 'pokemon name', align: 'start', key: 'name' },
+        { title: 'url', align: 'center', key: 'url' },
       ],
     }
   },
@@ -53,8 +48,11 @@ export default {
   <v-app>
     <v-main>
       <v-data-table
+       v-model:items-per-page="itemsPerPage"
        :headers="headers"
        :items="resultArray"
+       item-value="name"
+       class="my-table"
       >
       </v-data-table>
       <MyButton @click="moveHome()">ホーム</MyButton>
@@ -62,3 +60,7 @@ export default {
     </v-main>
   </v-app>
 </template>
+
+<style scoped>
+
+</style>
