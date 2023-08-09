@@ -1,40 +1,38 @@
-<script lang="ts">
+<script setup lang="ts">
+import { ref } from 'vue'
+import router from '../router'
 import MyButton from './MyButton.vue'
 import * as testType from '@/lib/interface/testType'
 import fetchUtil from '@/common/fetchUtility'
 
-export default {
-  components: {
-    MyButton,
-  },
-  data() {
-    return {
-      itemsPerPage: 5,
-      resultArray: [] as testType.testPoke[],
-      baseUrl: "https://pokeapi.co/api/v2/",
-      varUrl: "pokemon?limit=1000&offset=0",
-      headers: [
-        { title: 'pokemon name', align: 'start', key: 'name' },
-        { title: 'url', align: 'center', key: 'url' },
-      ],
-    }
-  },
-  methods: {
-    moveHome() {
-      this.$router.push('/Home')
-    },
-    getPokemonList() {
-      fetchUtil.fetchRequest(this.baseUrl + this.varUrl, {}, this.fetchOk, this.fetchNg);
-    },
-    fetchOk(data) {
-      data.results.forEach(pokedata => {
-        this.resultArray.push(pokedata);
-      });
-    },
-    fetchNg(err) {
-      console.log(err);
-    },
-  },
+const itemsPerPage = ref(5);
+const resultArray = ref([]);
+
+const baseUrl: string = "https://pokeapi.co/api/v2/";
+const varUrl: string = "pokemon?limit=1000&offset=0";
+const headers = [
+  { title: 'pokemon name', align: 'start', key: 'name' },
+  { title: 'url', align: 'center', key: 'url' },
+]
+
+const moveHome = (): void => {
+  router.push('/Home');
+};
+
+const getPokemonList = (): void => {
+  fetchUtil.fetchRequest(baseUrl + varUrl, {}, fetchOk, fetchNg);
+  //resultArray.value = await (await fetch(baseUrl + varUrl)).json()
+}
+
+const fetchOk = (data): void => {
+  console.log(data);
+  data.results.forEach(pokedata => {
+    resultArray.push(pokedata);
+  });
+}
+
+const fetchNg = (err):void => {
+  console.log(err);
 }
 </script>
 
