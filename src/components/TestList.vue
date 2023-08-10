@@ -5,8 +5,8 @@ import MyButton from './MyButton.vue'
 import * as testType from '@/lib/interface/testType'
 import fetchUtil from '@/common/fetchUtility'
 
-const itemsPerPage = ref(5);
-const resultArray = ref([]);
+const itemsPerPage = ref<number>(5);
+const resultArray = ref<testType.testPoke[]>([]);
 
 const baseUrl: string = "https://pokeapi.co/api/v2/";
 const varUrl: string = "pokemon?limit=1000&offset=0";
@@ -27,7 +27,7 @@ const getPokemonList = (): void => {
 const fetchOk = (data): void => {
   console.log(data);
   data.results.forEach(pokedata => {
-    resultArray.push(pokedata);
+    resultArray.value.push(pokedata);   // 配列のvalueにpushしないとダメみたい
   });
 }
 
