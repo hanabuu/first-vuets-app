@@ -23,6 +23,7 @@ const drawer = ref(null)
         <li><router-link to="/">Home</router-link> </li>
         <li><router-link to="/edit">Edit</router-link></li>
         <li><router-link to="/test">Test</router-link></li>
+        <li><router-link to="/chart">Chart</router-link></li>
       </ul>
     </v-navigation-drawer>
 

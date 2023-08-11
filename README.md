@@ -26,6 +26,12 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 * vuetifyを入れてみた
 * vue3でsqliteを操作するのは無理
 
+* chartjs導入 今はvue-chart-3が主流らしい
+```
+> npm install vue-chart-3
+> npm install chart.js
+```
+
 ## 参考
 
 * [Vite + Vue3 + TypeScriptの開発体験](https://zenn.dev/hctaw_srp/articles/5f2e2a6470d2ec)
@@ -35,3 +41,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 * [Vue3でVuetifyをインストールしよう](https://asameshicode.com/vue3-vuetify/)
 * [Vuetifyについて学んでみた🧑‍🎨](https://zenn.dev/joo_hashi/articles/50c77b03d195de)
 * [vue（nodejs)を使ってSQLite3を使いたい。(結論無理ということ)](https://teratail.com/questions/347072)
+* [Vue3で出てくるrefの使い方(reactiveも)](https://blog.amayz.co.jp/?p=1263)
+* [無料で使えるAPIを紹介](https://asameshicode.com/free-api/)
+* [アメリカの人口](https://datausa.io/about/api/)
+  * [例](https://datausa.io/api/data?drilldowns=Nation&measures=Population)

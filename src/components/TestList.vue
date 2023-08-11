@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref,reactive } from 'vue'
 import router from '../router'
 import MyButton from './MyButton.vue'
 import * as testType from '@/lib/interface/testType'
 import fetchUtil from '@/common/fetchUtility'
 
-const itemsPerPage = ref<number>(5);
-const resultArray = ref<testType.testPoke[]>([]);
+const itemsPerPage = ref<number>(10);
+//const resultArray = ref<testType.testPoke[]>([]);
+const resultArray = reactive<testType.testPoke[]>([]);     // オブジェクトはreactiveで宣言が必要らしい
 
 const baseUrl: string = "https://pokeapi.co/api/v2/";
-const varUrl: string = "pokemon?limit=1000&offset=0";
+const varUrl: string = "pokemon?limit=10&offset=0";
 const headers = [
   { title: 'pokemon name', align: 'start', key: 'name' },
   { title: 'url', align: 'center', key: 'url' },
@@ -27,7 +28,7 @@ const getPokemonList = (): void => {
 const fetchOk = (data): void => {
   console.log(data);
   data.results.forEach(pokedata => {
-    resultArray.value.push(pokedata);   // 配列のvalueにpushしないとダメみたい
+    resultArray.push(pokedata);   // reactiveで宣言することでそのままpush可能
   });
 }
 
@@ -50,7 +51,7 @@ const fetchNg = (err):void => {
        :headers="headers"
        :items="resultArray"
        item-value="name"
-       class="my-table"
+       :hide-default-footer="false"
       >
       </v-data-table>
       <MyButton @click="moveHome()">ホーム</MyButton>
