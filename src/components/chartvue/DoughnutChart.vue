@@ -10,8 +10,6 @@
     chartData: Array,
   });
 
-//  const data = ref([30, 40, 60, 70, 5]);
-
   const options = ref<ChartOptions<'doughnut'>>({
     responsive: true,
     plugins: {
